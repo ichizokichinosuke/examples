@@ -6,7 +6,6 @@ export const config = {
 }
 
 export function middleware(req: NextRequest) {
-  console.log(req.nextUrl.pathname)
   if (req.nextUrl.pathname == '/file.json') {
     return
   } else {
