@@ -2,15 +2,16 @@
 import { NextResponse, NextRequest } from 'next/server'
 
 export const config = {
-  matcher: '',
+  matcher: '/',
 }
 
 export function middleware(req: NextRequest) {
-  if (req.nextUrl.pathname == '/file') {
+  console.log(req.nextUrl.pathname)
+  if (req.nextUrl.pathname == '/file.json') {
     return
   } else {
     const url = req.nextUrl.clone()
     url.pathname = '/file.json'
-    return NextResponse.redirect(url)
+    return NextResponse.rewrite(url)
   }
 }
